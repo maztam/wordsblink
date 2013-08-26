@@ -4,11 +4,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Kata - Kata Mutiara</title>	
 	<link rel="stylesheet" href="css/themes/default/jquery.mobile.structure-1.3.1.min.css" />
+<<<<<<< HEAD
 	<link rel="stylesheet"  href="css/themes/default/mahardika.min.css">
+=======
+	<link rel="stylesheet" href="css/themes/default/mahardika.min.css" />	
+>>>>>>> version 1.0
 	<link rel="shortcut icon" href="favicon.ico">
     <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,700">
 	<script src="phonegap.js"> </script>	
 	<script src="js/jquery.js"></script>
+<<<<<<< HEAD
 	<script type="text/javascript" src="js/json2.js"></script>	
 	<script type="text/javascript" src="js/jquery.mobile-1.3.1.min.js"></script>
 	<script type="text/javascript" src="js/jstorage.min.js"></script>
@@ -108,6 +113,63 @@ height:80%;
 overflow:auto;
 }
 
+=======
+	<script type="text/javascript" src="js/jquery.mobile-1.3.1.min.js"></script>
+	
+<style>
+
+
+#menus{
+background: #499bea; /* Old browsers */
+background: -moz-linear-gradient(top, #499bea 0%, #207ce5 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#499bea), color-stop(100%,#207ce5)); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top, #499bea 0%,#207ce5 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top, #499bea 0%,#207ce5 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top, #499bea 0%,#207ce5 100%); /* IE10+ */
+background: linear-gradient(to bottom, #499bea 0%,#207ce5 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#499bea', endColorstr='#207ce5',GradientType=0 ); /* IE6-9 */
+
+}
+
+#boxkata{
+color:white;
+font-family:Comic Sans MS;
+height:100%;
+}
+
+.tables{
+width:100%;
+height:100%;
+}
+
+#menu_utama{
+height:50%;
+text-align:center;
+vertical-align:middle;
+background-color:#990536;
+font-family:tahoma;
+color:white;
+font-size:29px;
+}
+
+#menu_utama:hover{
+background-color:#99056C;
+}
+
+#credit{
+height:50%;
+text-align:center;
+font-family:tahoma;
+vertical-align:middle;
+background-color:#43268C;
+color:white;
+font-size:29px;
+}
+
+#credit:hover{
+background-color:#274E8C;
+}
+>>>>>>> version 1.0
 </style>
 
 <script>
@@ -119,12 +181,18 @@ $(document).ready(function(){
 			   return true;
 		};
 		
+<<<<<<< HEAD
 		$('#hpsfavorit').click(function(){
 			$.jStorage.deleteKey("katafavorit");
 			alert('Favorit Berhasil di Hapus');
 		});
 	
 		$('#next').click(function(){
+=======
+
+	
+		$('#menus').click(function(){
+>>>>>>> version 1.0
 		
 			$("#instruksi").css('display','none');
 
@@ -132,6 +200,7 @@ $(document).ready(function(){
 				var berapa = $(xml).find('kata_id').size();
 				var random = Math.ceil(Math.random() * berapa);
 				
+<<<<<<< HEAD
 				$.jStorage.set("setrandom", random);
 
 				var katarandom = $(xml).find('kata_id[nom="'+random+'"]').find('kata').text();	
@@ -144,6 +213,11 @@ $(document).ready(function(){
 
 				$("#socialtwit").attr('href','https://twitter.com/share?url=http://www.google.com&text='+katarandom);				
 				
+=======
+
+				var katarandom = $(xml).find('kata_id[nom="'+random+'"]').find('kata').text();	
+				console.log(" soto "+random);
+>>>>>>> version 1.0
 				
 				//This is awesome!
 
@@ -154,6 +228,7 @@ $(document).ready(function(){
 						
 					});
 				});
+<<<<<<< HEAD
 					
 							
 				
@@ -240,12 +315,26 @@ $(document).ready(function(){
 				});	
 
 		 
+=======
+			});
+		}); 
+		
+		$('#menu_utama').click(function(){
+			window.location="#menus";
+		});
+		
+		$('#credit').click(function(){
+			window.location="#developer";
+		});		
+			
+>>>>>>> version 1.0
 			$('#nextimg').hover(function(){
 				$(this).attr('src','image/play_hover.png');}
 				,function() {
 				$(this).attr('src','image/play.png');
 			});
 
+<<<<<<< HEAD
 		
 	$(document).delegate('#favoritmenu', 'pageshow', function () {
 
@@ -271,6 +360,8 @@ $(document).ready(function(){
 				
 		
 		});
+=======
+>>>>>>> version 1.0
 
 		
 	});	
@@ -281,6 +372,7 @@ $(document).ready(function(){
 
 </head>
 <body>
+<<<<<<< HEAD
 
 
 <div data-role="page" id="menus">
@@ -367,5 +459,48 @@ $(document).ready(function(){
 	</div>
 </div>
 
+=======
+<div data-role="page" id="satu" data-theme="a">
+<div data-role="content" style="position:fixed;width:100%;height:100%;margin-left:-15px;margin-top:-15px;">
+<div style="width:100%;height:100%;">
+	<div id="menu_utama">
+		<div style="top:25%;position:absolute;width:100%;"><p align="center" style="padding:0;margin:0 0 0 -15px;">Kata Mutiara</p></div>
+	</div>
+	<div  id="credit" style="">
+		<div style="top:75%;position:absolute;width:100%;"><p align="center" style="padding:0;margin:0 0 0 -15px;">Developer</div>
+	</div>
+</div>
+	</div>
+</div>
+
+<div data-role="page" id="menus">
+
+	<div data-role="content">
+	<div id="boxkata" style="position:fixed;width:100%;height:100%;margin-left:-15px;margin-top:-15px;">
+		<div style="top:25%;position:absolute;width:100%;"><p id="instruksi" align="center" style="font-size:38px;">Mulailah ... </p>
+		<p id="masukkata" align="center" style="font-size:23px;padding:0 15px 0 15px;"></p></div>
+	</div>
+	</div>
+	
+</div>
+
+<div data-role="page" id="developer" data-theme="a">
+	<div data-role="content">
+		<h3>Kata Mutiara</h3>
+		<p>Berisi kumpulan kata mutiara dan kata kata indah yang akan membuat hari anda lebih baik lagi. Aplikasi ini dibagikan secara gratis dan open source.</p>
+		<p><b>Developed By</b></p>
+		<p>WOF6</p>
+		<p><b>Team</b></p>
+		<p>Prawira, Firmansyah dan Benny</p>	
+		<p><b>Contact Us</b></p>
+		<p>maztam2@gmail.com</p>
+		<p>maztam.blogspot.com</p>
+		<p><b>Supported By</b></p>
+		<p>MakelarBerita.com</p>		
+	</div>	
+</div>
+
+
+>>>>>>> version 1.0
 </body>
 </html>
