@@ -64,11 +64,34 @@ font-size:29px;
 #credit:hover{
 background-color:#274E8C;
 }
+
+#linkm{
+text-decoration:none;
+}
+
+#linkm:hover{
+color:white;
+}
 </style>
 
 <script>
 $(document).ready(function(){
 
+    function onLoad() {
+        document.addEventListener("deviceready", onDeviceReady, false);
+    }
+
+	function onDeviceReady(){
+	document.addEventListener("backbutton", function(e){
+		if($.mobile.activePage.is('#satu')){
+			e.preventDefault();
+			navigator.app.exitApp();
+		}
+		else {
+			navigator.app.backHistory()
+		}
+	}, false);
+	}
 
 		Array.prototype.remove = function(value) {
 			   this.splice(this.indexOf(value), 1);
@@ -101,13 +124,6 @@ $(document).ready(function(){
 			});
 		}); 
 		
-		$('#menu_utama').click(function(){
-			document.location.href="#menus";
-		});
-		
-		$('#credit').click(function(){
-			document.location.href="#developer";
-		});		
 			
 			$('#nextimg').hover(function(){
 				$(this).attr('src','image/play_hover.png');}
@@ -124,15 +140,19 @@ $(document).ready(function(){
 </script>
 
 </head>
-<body>
+<body onload="onLoad()">
 <div data-role="page" id="satu" data-theme="a">
 <div data-role="content" style="position:fixed;width:100%;height:100%;margin-left:-15px;margin-top:-15px;">
 <div style="width:100%;height:100%;">
 	<div id="menu_utama">
-		<div style="top:25%;position:absolute;width:100%;"><p align="center" style="padding:0;margin:0 0 0 -15px;">Kata Mutiara</p></div>
+		<div style="top:25%;position:absolute;width:100%;"><p align="center" style="padding:0;margin:0 0 0 -15px;">
+		<a id="linkm" href="#menus">Kata Mutiara</a>
+		</p></div>
 	</div>
 	<div  id="credit" style="">
-		<div style="top:75%;position:absolute;width:100%;"><p align="center" style="padding:0;margin:0 0 0 -15px;">Developer</div>
+		<div style="top:75%;position:absolute;width:100%;"><p align="center" style="padding:0;margin:0 0 0 -15px;">
+		<a  id="linkm" href="#developer">Developer</a>
+		</div>
 	</div>
 </div>
 	</div>
