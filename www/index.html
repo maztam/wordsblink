@@ -7,7 +7,7 @@
 	<link rel="stylesheet" href="css/themes/default/mahardika.min.css" />	
 	<link rel="shortcut icon" href="favicon.ico">
     <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,700">
-	<script src="phonegap.js"> </script>	
+	<script src="cordova.js"> </script>	
 	<script src="js/jquery.js"></script>
 	<script type="text/javascript" src="js/jquery.mobile-1.3.1.min.js"></script>
 <style>
@@ -36,33 +36,6 @@ width:100%;
 height:100%;
 }
 
-#menu_utama{
-height:50%;
-text-align:center;
-vertical-align:middle;
-background-color:#990536;
-font-family:tahoma;
-color:white;
-font-size:29px;
-}
-
-#menu_utama:hover{
-background-color:#99056C;
-}
-
-#credit{
-height:50%;
-text-align:center;
-font-family:tahoma;
-vertical-align:middle;
-background-color:#43268C;
-color:white;
-font-size:29px;
-}
-
-#credit:hover{
-background-color:#274E8C;
-}
 
 #linkm{
 text-decoration:none;
@@ -72,6 +45,49 @@ color:white;
 #linkm:hover{
 color:white;
 }
+
+.biru {
+	-moz-box-shadow:inset 0px 1px 0px 0px #cae3fc;
+	-webkit-box-shadow:inset 0px 1px 0px 0px #cae3fc;
+	box-shadow:inset 0px 1px 0px 0px #cae3fc;
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #79bbff), color-stop(1, #4197ee) );
+	background:-moz-linear-gradient( center top, #79bbff 5%, #4197ee 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#79bbff', endColorstr='#4197ee');
+	background-color:#79bbff;
+	-webkit-border-top-left-radius:20px;
+	-moz-border-radius-topleft:20px;
+	border-top-left-radius:20px;
+	-webkit-border-top-right-radius:20px;
+	-moz-border-radius-topright:20px;
+	border-top-right-radius:20px;
+	-webkit-border-bottom-right-radius:20px;
+	-moz-border-radius-bottomright:20px;
+	border-bottom-right-radius:20px;
+	-webkit-border-bottom-left-radius:20px;
+	-moz-border-radius-bottomleft:20px;
+	border-bottom-left-radius:20px;
+	text-indent:0px;
+	display:inline-block;
+	color:#ffffff;
+	font-family:Verdana;
+	font-size:15px;
+	font-weight:bold;
+	font-style:normal;
+	height:33px;
+	line-height:33px;
+	width:101px;
+	text-decoration:none;
+	text-align:center;
+	text-shadow:1px 1px 0px #287ace;
+}
+.biru:hover {
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #4197ee), color-stop(1, #79bbff) );
+	background:-moz-linear-gradient( center top, #4197ee 5%, #79bbff 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#4197ee', endColorstr='#79bbff');
+	background-color:#4197ee;
+}.biru:active {
+	position:relative;
+	top:1px;
 </style>
 
 <script>
@@ -79,7 +95,7 @@ $(document).ready(function(){
 		document.addEventListener("deviceready", setOverrideBackbutton, false);
 		
 		function setOverrideBackbutton(){
-			alert("soto ayam");
+			alert("lontong mie");
 		}
 
 		Array.prototype.remove = function(value) {
@@ -99,7 +115,7 @@ $(document).ready(function(){
 				
 
 				var katarandom = $(xml).find('kata_id[nom="'+random+'"]').find('kata').text();	
-				console.log(" soto "+random);
+				//console.log(" soto "+random);
 				
 				//This is awesome!
 
@@ -119,8 +135,16 @@ $(document).ready(function(){
 				,function() {
 				$(this).attr('src','image/play.png');
 			});
+	
+	//link utama
+	$('#menu_utama').click(function(){
+		$.mobile.changePage('#menus', { transition: "pop"} );
+		});
 
-
+	$('#credit').click(function(){
+		$.mobile.changePage('#developer', { transition: "pop"} );
+		});		
+	
 		
 	});	
 		
@@ -131,18 +155,12 @@ $(document).ready(function(){
 </head>
 <body>
 <div data-role="page" id="satu" data-theme="a">
-<div data-role="content" style="position:fixed;width:100%;height:100%;margin-left:-15px;margin-top:-15px;">
+<div data-role="content" style="position:fixed;width:100%;height:100%;">
 <div style="width:100%;height:100%;">
-	<div id="menu_utama">
-		<div style="top:25%;position:absolute;width:100%;"><p align="center" style="padding:0;margin:0 0 0 -15px;">
-		<a id="linkm" href="#menus">Kata Mutiara</a>
-		</p></div>
-	</div>
-	<div  id="credit" style="">
-		<div style="top:75%;position:absolute;width:100%;"><p align="center" style="padding:0;margin:0 0 0 -15px;">
-		<a  id="linkm" href="#developer">Developer</a>
-		</div>
-	</div>
+	<p align="center"><img src="image/km.png" width="250" /></p>
+	<p align="center" style="font-family:tahoma;">Aplikasi kumpulan kata mutiara</p>
+	<p align="center"><span class="biru" id="menu_utama">Play</span></p>
+	<p align="center"><span class="biru" id="credit">Developer</span></p>	
 </div>
 	</div>
 </div>
@@ -161,16 +179,18 @@ $(document).ready(function(){
 <div data-role="page" id="developer" data-theme="a">
 	<div data-role="content">
 		<h3>Kata Mutiara</h3>
-		<p>Berisi kumpulan kata mutiara dan kata kata indah yang akan membuat hari anda lebih baik lagi. Aplikasi ini dibagikan secara gratis dan open source.</p>
+		<p>Berisi kumpulan kata mutiara dan kata kata indah yang akan membuat hari anda lebih baik lagi. Aplikasi ini dibagikan secara gratis.</p>
 		<p><b>Developed By</b></p>
 		<p>WOF6</p>
 		<p><b>Team</b></p>
-		<p>Prawira, Firmansyah dan Benny</p>	
+		<p>Maztam, Firmansyah dan Benny</p>	
 		<p><b>Contact Us</b></p>
 		<p>maztam2@gmail.com</p>
 		<p>maztam.blogspot.com</p>
 		<p><b>Supported By</b></p>
-		<p>MakelarBerita.com</p>		
+		<p>MakelarBerita.com</p>	
+		<p><b>Thanks to</b></p>
+		<p>Allah SWT, Teman teman markas WOF5 yang selalu support </p>			
 	</div>	
 </div>
 
